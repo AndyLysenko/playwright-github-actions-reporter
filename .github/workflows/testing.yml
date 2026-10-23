@@ -8,6 +8,9 @@ on:
       - dev
       - feature/*
 
+permissions:
+  contents: write
+
 jobs:
   testing:
     name: Start E2E Testing
@@ -47,6 +50,7 @@ jobs:
         env:
           AZURE_STORAGE_SAS: ${{ secrets.AZURE_STORAGE_SAS }}
           AZURE_STORAGE_URL: ${{ vars.AZURE_STORAGE_URL }}
+          GITHUB_TOKEN: ${{ github.token }}
 
       - name: Show the test result outputs
         run: |

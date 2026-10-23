@@ -61,6 +61,7 @@ const config: PlaywrightTestConfig<{}, {}> = {
         includeResults: ["fail", "flaky", "skipped"],
         azureStorageSAS: process.env.AZURE_STORAGE_SAS,
         azureStorageUrl: process.env.AZURE_STORAGE_URL,
+        githubStorage: true,
       },
     ],
     // GitHub repository storage: needs `contents: write` and GITHUB_TOKEN (see the README)
@@ -102,6 +103,7 @@ const config: PlaywrightTestConfig<{}, {}> = {
   use: {
     actionTimeout: 0,
     trace: "on-first-retry",
+    screenshot: "only-on-failure",
   },
   projects: [
     {
